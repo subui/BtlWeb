@@ -108,7 +108,6 @@ session_start();
     </section>
 
   </div>
-
 </body>
 
 </html>

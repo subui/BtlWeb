@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse js-navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
         <a class="navbar-brand" href="index.php">
-          <img height="20" width="20" src="logo.png" class="img-responsive pull-left" alt="Responsive image">  PartTIME
+          <img height="20" width="20" src="views/front/logo.png" class="img-responsive pull-left" alt="Responsive image">  PartTIME
         </a>
         <?php
         require 'config/connectdb.php';

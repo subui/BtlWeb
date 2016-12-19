@@ -38,7 +38,7 @@ $q = strtolower(khong_dau($_GET['q']));
       <br>
     </div>
     <div class="col-sm-9 text-left">
-      <h3 id="timkiem">Tìm thấy mặt hàng với từ khóa: <i><?= $_GET['q'] ?></i></h3>
+      <h3 id="timkiem"></h3>
       <div class="container-fluid">
         <div class="well well-sm">
           <strong>Tìm Kiếm</strong>
@@ -61,7 +61,9 @@ $q = strtolower(khong_dau($_GET['q']));
                 ?>
                 <div class="item  col-xs-4 col-lg-4" id="<?= $row['id_sp'] ?>">
                   <div class="thumbnail">
-                    <img class="group list-group-image img-size" src="libraries/img/<?php echo $row['img1']; ?>" alt=""/>
+                    <a href="index.php?page=chitiet&id=<?= $row['id_sp'] ?>">
+                      <img class="group list-group-image img-size" src="libraries/img/<?php echo $row['img1']; ?>" alt=""/>
+                    </a>
                     <div class="caption">
                       <h4 class="group inner list-group-item-heading"><?= $row['name']; ?></h4>
                       <div class="row">
@@ -83,7 +85,9 @@ $q = strtolower(khong_dau($_GET['q']));
           if ($count > 0) {
             echo '<script>$("#timkiem").html("Tìm thấy '.$count.' mặt hàng với từ khóa: <i>'.$_GET['q'].'</i>");</script>';
           } else {
-            echo '<script>$("#timkiem").html("Không tìm thấy mặt hàng nào với từ khóa: <i>'.$_GET['q'].'</i>");</script>';
+            echo '<script>
+            $("#timkiem").html("Không tìm thấy mặt hàng nào với từ khóa: <i>'.$_GET['q'].'</i>").next().remove();
+            </script>';
           }
 
           ?>
@@ -102,12 +106,16 @@ $('.btn-giohang').on('click', function() {
     for (var i = 0; i < 10; i++) {
       strId += Math.floor(Math.random() * 10);
     }
-    $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="' + strId + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><a href="index.php?page=giohang" class="alert-link">Đã thêm <strong>' + msg + '</strong> vào giỏ hàng</a></div>');
+    var name = msg.split(":")[0];
+    $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="' + strId + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><a href="index.php?page=giohang" class="alert-link">Đã thêm <strong>' + name + '</strong> vào giỏ hàng</a></div>');
     window.setTimeout(function() {
       $("#" + strId).fadeTo(500, 0).slideUp(500, function(){
         $(this).remove();
       });
     }, 3000);
+
+    var quantity = msg.split(":")[1];
+    $("#sl").text("Giỏ hàng (" + quantity + ")");
   });
 });
 </script>

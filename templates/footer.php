@@ -1,7 +1,7 @@
 <footer class="footer-bs">
   <div class="row">
     <div class="col-md-3 footer-brand animated fadeInLeft">
-      <h2><img src="logo.png" width="50" height="50"></h2>
+      <h2><img src="views/front/logo.png" width="50" height="50"></h2>
       <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
       <p>© 2014 BS3 UI Kit, All rights reserved</p>
     </div>
