@@ -38,16 +38,6 @@
     // $sql_donhang = "insert into donhang (id_kh, id_sp, soluong, price, thanhtien, ngaythang) values ('".$row_kh['id_kh']."', '".$_GET['id']."', 1, ".$row_sp['price'].", ".$row_sp['price'].", '".date("Y-m-d H:i:s")."')";
     // $result = mysql_query($sql_donhang);
     // if ($result) {
-      ?>
-      <script>
-        $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="alert-<?= $_GET['id'] ?>"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Đã thêm <?= $row_sp['name'] ?> vào giỏ hàng</div>');
-        window.setTimeout(function() {
-          $("#alert-<?= $_GET['id'] ?>").fadeTo(500, 0).slideUp(500, function(){
-              $(this).remove();
-          });
-        }, 3000);
-      </script>
-      <?php
     // }
   }
   require 'config/closeConnectDb.php';
