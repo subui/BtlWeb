@@ -1,0 +1,691 @@
+/* CSS Document */
+
+<style>
+        
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Add a gray background color and some padding to the footer */
+        
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+       
+        .footer-bs {
+            background-color: #3c3d41;
+            padding: 0px 10px;
+            color: rgba(255, 255, 255, 1.00);
+            margin-bottom: 0px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 6px;
+        }
+        .footer-bs .footer-brand,
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            padding: 10px 25px;
+        }
+        .footer-bs .footer-nav,
+        .footer-bs .footer-social,
+        .footer-bs .footer-ns {
+            border-color: transparent;
+        }
+        .footer-bs .footer-brand h2 {
+            margin: 0px 0px 10px;
+        }
+        .footer-bs .footer-brand p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+        .footer-bs .footer-nav ul.pages {
+            list-style: none;
+            padding: 0px;
+        }
+        .footer-bs .footer-nav ul.pages li {
+            padding: 5px 0px;
+        }
+        .footer-bs .footer-nav ul.pages a {
+            color: rgba(255, 255, 255, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .footer-bs .footer-nav ul.pages a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+        .footer-bs .footer-nav h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .footer-bs .footer-nav ul.list {
+            list-style: none;
+            padding: 0px;
+        }
+        .footer-bs .footer-nav ul.list li {
+            padding: 5px 0px;
+        }
+        .footer-bs .footer-nav ul.list a {
+            color: rgba(255, 255, 255, 0.80);
+        }
+        .footer-bs .footer-nav ul.list a:hover {
+            color: rgba(255, 255, 255, 0.60);
+            text-decoration: none;
+        }
+        .footer-bs .footer-social ul {
+            list-style: none;
+            padding: 0px;
+        }
+        .footer-bs .footer-social h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+
+
+        }
+        .footer-bs .footer-social li {
+            padding: 5px 4px;
+        }
+        .footer-bs .footer-social a {
+            color: rgba(255, 255, 255, 1.00);
+        }
+        .footer-bs .footer-social a:hover {
+            color: rgba(255, 255, 255, 0.80);
+            text-decoration: none;
+        }
+        .footer-bs .footer-ns h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .footer-bs .footer-ns p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.70);
+        }
+        @media (min-width: 768px) {
+            .footer-bs .footer-nav,
+            .footer-bs .footer-social,
+            .footer-bs .footer-ns {
+                border-left: solid 1px rgba(255, 255, 255, 0.10);
+            }
+        }
+        @charset "utf-8";
+        *,
+        *: before,
+        *:after {
+            -webkit-box-sizing: border-box !important;
+            -moz-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .navbar-brand {} .navbar-brand>img {
+            margin: auto 0px auto 15px !important;
+            padding: auto;
+        }
+        .navbar-header {
+            margin-left: -4%!important;
+        }
+        .navbar-left {
+            margin-left: 38.7px;
+        }
+        .navbar-right {
+            margin-right: 21px;
+        }
+        .navbar-inverse {
+            border: none;
+        }
+        .navbar-inverse .navbar-collapse,
+        .navbar-inverse .navbar-form {
+            border: none;
+        }
+        
+        .toggle {
+            margin: 0;
+        }
+        #to-top {
+            position: fixed;
+            right: .2%;
+            bottom: .2%;
+            z-index: 799;
+        }
+        
+        .open > .dropdown-toggle.btn-danger {
+            color: #fff;
+            background-color: #c9302c;
+            border-color: #ac2925;
+            box-shadow: inset 0 0 0 2px #ac2925;
+        }
+        
+        .open>.dropdown-toggle.btn-danger {
+            color: #c9302c;
+            background-color: #fff;
+            box-shadow: inset 0 0 0 2px #c9302c;
+            border-color: #ac2925;
+        }
+        
+        .accordion-toggle {
+            z-index: 801;
+            position: fixed;
+            top: 0;
+            left: .5%;
+        }
+        .accordion-toggle:hover,
+        .accordion-toggle:focus {
+            cursor: pointer;
+        }
+        .nav-btn {
+            display: block;
+            top: 0px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .accordion label {
+            color: #fff;
+        }
+        .accordion input {
+            border-radius: 0;
+        }
+       
+        .accordion-toggle {
+            text-align: center;
+            width: 2.7%;
+            min-width: 50px;
+        }
+        .accordion-toggle span:after {
+            /* symbol for "opening" panels */
+            
+            font-family: 'FontAwesome';
+            /* essential for enabling glyphicon */
+            
+            content: "\f078";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 5%;
+            color: white;
+            text-align: right;
+            float: right;
+            vertical-align: middle;
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 120%;
+            text-decoration: none;
+        }
+        
+        
+        
+       
+        .social {
+            z-index: 801;
+            position: fixed;
+            top: 10%;
+            left: .5%;
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            width: 2.7%;
+        }
+        .social ul {
+            background: #222;
+        }
+        .social ul li {
+            list-style: none outside none;
+            display: block;
+            background: #222;
+            padding: 0;
+            margin: 0;
+        }
+        .nav>li>a:focus,
+        .nav>li>a:hover {
+            text-decoration: none;
+            background-color: #222;
+        }
+        .social i {
+            width: 100%;
+            min-width: 50px;
+            height: 100%;
+            min-height: 50px;
+            color: #FFF;
+            background-color: #222;
+            font-size: 22px;
+            text-align: center;
+            padding-top: 12px;
+            -webkit-transition: all ease 0.3s;
+            -moz-transition: all ease 0.3s;
+            -ms-transition: all ease 0.3s;
+            -o-transition: all ease 0.3s;
+            transition: all ease 0.3s;
+        }
+        .social .fa-facebook:hover {
+            background: #4060A5;
+            border: 1px solid #4060A5;
+        }
+        .social .fa-twitter:hover {
+            background: #00ABE3;
+            border: 1px solid #00ABE3;
+        }
+        .social .fa-google-plus:hover {
+            background: #e64522;
+            border: 1px solid #e64522;
+        }
+        .social .fa-github:hover {
+            background: #343434;
+            border: 1px solid #343434;
+        }
+        .social .fa-linkedin:hover {
+            background: #0094BC;
+            border: 1px solid #0094BC;
+        }
+        .social .fa-stack-overflow:hover {
+            background: #FEA501;
+            border: 1px solid #FEA501;
+        }
+        .social .fa-skype:hover {
+            background: #00C6FF;
+            border: 1px solid #00C6FF;
+        }
+        .social .fa-stack-exchange:hover {
+            background: #4D86C9;
+            border: 1px solid #4D86C9;
+        }
+        .social .fa-rss:hover {
+            background: #e88845;
+            border: 1px solid #e88845;
+        }
+        #social-collapse:after {
+            font-family: 'FontAwesome';
+            content: "\f068";
+            float: none;
+            position: relative;
+            color: white;
+        }
+        #social-collapse.collapsed:after {
+            content: "\f067";
+        }
+        ol.linenums {
+            counter-reset: linenumber;
+        }
+        ol.linenums li {
+            list-style-type: none;
+            counter-increment: linenumber;
+        }
+        ol.linenums li:before {
+            content: counter(linenumber);
+            float: left;
+            margin-left: -4em;
+            text-align: right;
+            width: 3em;
+        }
+        .mt {
+            margin-top: 2%;
+        }
+        
+        .text-white {
+            color: #fff;
+        }
+        .text-vertical-center {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .text-vertical-center h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 4.5em;
+            font-weight: 700;
+        }
+        section {
+            padding-bottom: 5%;
+        }
+        .bg-inverse {
+            color: #FFF;
+            background-color: #333;
+        }
+        .centered {
+            text-align: center;
+        }
+        .mt {
+            margin-top: 2%;
+        }
+        .text-vertical-center {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .text-vertical-center h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 4.5em;
+            font-weight: 700;
+        }
+        hr.small {
+            max-width: 100px;
+        }
+        small {
+            color: #eee!important;
+        }
+        .page-header {
+            text-align: center;
+        }
+        /*page styling*/
+        
+        .bs-callout {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #eee;
+            border-image: none;
+            border-radius: 3px;
+            border-style: solid;
+            border-width: 1px 1px 1px 5px;
+            margin-bottom: 5px;
+            padding: 20px;
+        }
+        
+        .bs-callout:last-child {
+            margin-bottom: 0px;
+        }
+        .bs-callout h4,
+        .bs-callout h5 {
+            margin-bottom: 10px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        .bs-callout-danger {
+            border-left-color: #d9534f;
+        }
+        .bs-callout-danger h4,
+        .bs-callout-danger h5 {
+            color: #d9534f;
+        }
+        .header-title {
+            color: #fff;
+        }
+        .title-thin {
+            font-weight: 300;
+        }
+        .service-item {
+            margin-bottom: 30px;
+        }
+        /* 
+========================
+Social Accordion Styling
+========================
+*/
+        
+        .nav-stacked > li > a {
+            position: relative;
+            display: block;
+            padding: 0!important;
+            margin: 0!important;
+        }
+        .nav-stacked > li > a:focus,
+        .nav-stacked > li > a:hover {
+            text-decoration: none;
+            background-color: #222;
+        }
+        .nav-tabs.nav-justified {
+            border-bottom: 0 none;
+            width: 100%;
+        }
+        .nav-tabs.nav-justified > li {
+            display: table-cell;
+            width: 1%;
+            float: none;
+        }
+        .container-form .nav-tabs.nav-justified > li > a,
+        .container-form .nav-tabs.nav-justified > li > a:hover,
+        .container-form .nav-tabs.nav-justified > li > a:focus {
+            background: #333333;
+            border: 0 none;
+            color: #ffffff;
+            margin-bottom: 0;
+            margin-right: 0;
+            border-radius: 0;
+            padding: 6% 3%;
+            line-height: 1.5;
+            font-weight: 600;
+            font-size: 100%;
+            outline: 0 none;
+        }
+       
+        
+        
+       
+        .nocode {
+            font-weight: 700;
+            color: #c7254e;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+        pre,
+        .nocode {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+        .prettyprint code > .atv,
+        .prettyprint code > .atn,
+        .prettyprint code > .pun {
+            background: #c7254e!important;
+            color: #fff!important;
+        }
+        blockquote {
+            font-size: 80% !important;
+            page-break-inside: avoid;
+            border: 3px solid #fff;
+            width: 80%;
+            -webkit-box-shadow: inset 5px 0px 0px 0px #f60, 8px 8px 8px 2px #888;
+            -mox-box-shadow: inset 5px 0px 0px 0px #f60, 8px 8px 8px 2px #888;
+            -ms-box-shadow: inset 5px 0px 0px 0px #f60, 8px 8px 8px 2px #888;
+            box-shadow: inset 5px 0px 0px 0px #f60, 8px 8px 8px 2px #888;
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 17.5px;
+            border-left: none;
+        }
+        .updated {
+            display: block;
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: .5%;
+            text-align: center;
+            background: #ededed;
+            color: #222222;
+        }
+        ins {
+            background: #c9302c;
+            border-color: #ac2925;
+        }
+        .addthis_recommended_vertical {
+            background: #c9302c;
+            border-color: #ac2925;
+        }
+        .mega-dropdown {
+            position: static !important;
+        }
+        .mega-dropdown-menu {
+            padding: 20px 0px;
+            width: 100%;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+        .mega-dropdown-menu > li > ul {
+            padding: 0;
+            margin: 0;
+        }
+        .mega-dropdown-menu > li > ul > li {
+            list-style: none;
+        }
+        .mega-dropdown-menu > li > ul > li > a {
+            display: block;
+            color: #222;
+            padding: 3px 5px;
+        }
+        .mega-dropdown-menu > li ul > li > a:hover,
+        .mega-dropdown-menu > li ul > li > a:focus {
+            text-decoration: none;
+        }
+        .mega-dropdown-menu .dropdown-header {
+            font-size: 18px;
+            color: #ff3546;
+            padding: 5px 60px 5px 5px;
+            line-height: 30px;
+        }
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-color: #080d15;
+            opacity: .7;
+        }
+       
+        
+
+        /** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+/** Default button **/
+.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+  border-left: 10px solid #fff;
+}
+.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+  border-left: 10px solid #ccc;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+  border-left: 10px solid #ebebeb;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+  border-left: 10px solid #adadad;
+}
+
+/** Primary button **/
+.btn-breadcrumb .btn.btn-primary:not(:last-child):after {
+  border-left: 10px solid #428bca;
+}
+.btn-breadcrumb .btn.btn-primary:not(:last-child):before {
+  border-left: 10px solid #357ebd;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):after {
+  border-left: 10px solid #3276b1;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):before {
+  border-left: 10px solid #285e8e;
+}
+
+/** Success button **/
+.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+  border-left: 10px solid #5cb85c;
+}
+.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+  border-left: 10px solid #4cae4c;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+  border-left: 10px solid #47a447;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+  border-left: 10px solid #398439;
+}
+
+/** Danger button **/
+.btn-breadcrumb .btn.btn-danger:not(:last-child):after {
+  border-left: 10px solid #d9534f;
+}
+.btn-breadcrumb .btn.btn-danger:not(:last-child):before {
+  border-left: 10px solid #d43f3a;
+}
+.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):after {
+  border-left: 10px solid #d2322d;
+}
+.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):before {
+  border-left: 10px solid #ac2925;
+}
+
+/** Warning button **/
+.btn-breadcrumb .btn.btn-warning:not(:last-child):after {
+  border-left: 10px solid #f0ad4e;
+}
+.btn-breadcrumb .btn.btn-warning:not(:last-child):before {
+  border-left: 10px solid #eea236;
+}
+.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):after {
+  border-left: 10px solid #ed9c28;
+}
+.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):before {
+  border-left: 10px solid #d58512;
+}
+
+/** Info button **/
+.btn-breadcrumb .btn.btn-info:not(:last-child):after {
+  border-left: 10px solid #5bc0de;
+}
+.btn-breadcrumb .btn.btn-info:not(:last-child):before {
+  border-left: 10px solid #46b8da;
+}
+.btn-breadcrumb .btn.btn-info:hover:not(:last-child):after {
+  border-left: 10px solid #39b3d7;
+}
+.btn-breadcrumb .btn.btn-info:hover:not(:last-child):before {
+  border-left: 10px solid #269abc;
+}
+    </style>
