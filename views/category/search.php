@@ -21,7 +21,7 @@ function khong_dau($str) { // hàm chuyển tiếng việt có dấu thành khô
 
 $q = strtolower(khong_dau($_GET['q']));
 ?>
-
+<div class="alert-giohang"></div>
 <div id="products" class="row list-group" style="width: 80%; margin: auto; margin-top: 100px">
   <h3 id="timkiem">Tìm thấy mặt hàng với từ khóa: <i><?= $_GET['q'] ?></i></h3>
   <?php

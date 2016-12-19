@@ -8,6 +8,7 @@
         $value = $_SESSION['giohang'][$_GET['id']] + 1;
       } else {
         $value = 1;
+        $_SESSION['sl']++;
       }
     }
 
