@@ -85,6 +85,8 @@ session_start();
     </div>
 
     <?php
+  } elseif (isset($_GET['q'])) {
+    include 'views/category/search.php';
   } else {
     include 'templates/slide.php';
     include 'templates/content.php';
