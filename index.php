@@ -77,6 +77,8 @@ session_start();
           include 'views/category/content.php';
         } elseif ($_GET['page'] == 'giohang') {
           include 'views/customer/giohang.tpl.php';
+        } elseif ($_GET['page'] == 'chitiet') {
+          include 'views/product/chitietsanpham.tpl.php';
         }
 
         ?>

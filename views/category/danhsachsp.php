@@ -8,7 +8,7 @@
   ?>
       <div class="item  col-xs-4 col-lg-4" id="<?= $row['id_sp'] ?>">
         <div class="thumbnail">
-          <img class="group list-group-image img-size" src="libraries/img/<?php echo $row['img1']; ?>" alt=""/>
+          <a href="index.php?page=chitiet&id=<?= $row['id_sp'] ?>"><img class="group list-group-image img-size" src="libraries/img/<?php echo $row['img1']; ?>" alt=""/></a>
           <div class="caption">
             <h4 class="group inner list-group-item-heading"><?= $row['name']; ?></h4>
             <div class="row">

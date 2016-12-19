@@ -10,18 +10,14 @@
 <div class="col-sm-2 sidenav text-left">
   <div class="row">
 
-    <div class="col-sm-2"></div>
-    <div class="col-sm-9">
-
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
       <div class="btn-group btn-breadcrumb">
-        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+        <a href="index.php" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
         <a href="#" class="btn btn-default"><?= $row['group_name'] ?></a>
       </div>
     </div>
-    <div class="col-sm-1"></div>
-
   </div>
-
   <br>
   <div class="row">
     <div class="col-sm-2"></div>

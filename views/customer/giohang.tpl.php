@@ -6,7 +6,7 @@
         </div>
         <div class="col-sm-10">
           <div class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="index.php" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
             <a href="#" class="btn btn-default">Giỏ hàng</a>
           </div>
         </div>

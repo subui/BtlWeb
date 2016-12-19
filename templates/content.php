@@ -34,9 +34,11 @@
       while($row = mysql_fetch_assoc($result)){
         ?>
         <div class="col-sm-3">
-          <img src="libraries/img/<?php echo $row['img1']; ?>" class="img-responsive" style="width:100%" alt="Image">
-          <br>
-          <h5 align="center"><?php echo $row['name']; ?></h5>
+          <a href="index.php?page=chitiet&id=<?= $row['id_sp'] ?>">
+            <img src="libraries/img/<?php echo $row['img1']; ?>" class="img-responsive" style="width:100%" alt="Image">
+            <br>
+            <h5 align="center"><?php echo $row['name']; ?></h5>
+          </a>
         </div>
         <?php }
         require 'config/closeConnectDb.php';
