@@ -39,7 +39,7 @@
 				$result = "Đăng nhập không thành công!";
 				session_unset('username');
 			} else{
-				header("Location:../views/front/trangchu.tpl.php");
+				header("Location:../index.php");
 			}
 			require '../config/closeConnectDb.php';
 		}

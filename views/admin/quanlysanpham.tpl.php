@@ -102,9 +102,9 @@
 	                                <li><a href="../../modules/logout.php">Đăng xuất</a>
 	                                </li>
 	                             </ul>
-	                        
+
 	                        <?php }else if (isset($_SESSION["customer"])) { ?>
-	                            
+
 	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION["customer"]; ?><span class="caret"></span></a>
 	                            <ul class="dropdown-menu" role="menu">
 	                                <li><a href="#">Thông tin cá nhân</a>
@@ -118,7 +118,7 @@
 	                            <li><a href="#">Giỏ hàng (0)</a>
 
 	                         <?php } else { ?>
-	  
+
 	                            <a href="../modules/login.php" class="dropdown-toggle"> Đăng nhập<span class="caret"></span></a>
 	                            <ul class="dropdown-menu">
 	                                <li><a href="../../modules/signup.php">Đăng Ký</a>
@@ -137,7 +137,7 @@
 	    	$index = 0;
 	    	$quantity = 0;
 			function showProduct($parameter) {
-				global $index, $quantity;  
+				global $index, $quantity;
 				$quantity = 0;
 		?>
 			<table class="table table-bordered" id="fitness-table">
@@ -158,7 +158,7 @@
 			         	require '../../config/connectdb.php';
 						$sql = "SELECT * FROM sanpham, loaisanpham WHERE sanpham.group_id=loaisanpham.group_id";
 						$result = mysql_query($sql);
-			        	                       
+
 			        	if(mysql_num_rows($result) > 0){
 			        		while( $row = mysql_fetch_assoc($result)){
 			        			if($row["group_id"]===$parameter){
@@ -184,14 +184,14 @@
 			            <td><?php echo $row['status']; ?></td>
 			            <td><?php echo $row['dateImport']; ?></td>
 			    		<td>
-			                <button type="button" name="Edit" id="<?php echo $row['id_kh'];?>" class="edit btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="showInfo(<?php echo $index; ?>);"><i class="fa fa-fw fa-edit"></i> Chỉnh sửa
+			                <button type="button" name="Edit" id="<?php echo $row['id_sp'];?>" class="edit btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="showInfo(<?php echo $index; ?>);"><i class="fa fa-fw fa-edit"></i> Chỉnh sửa
 			            </td>
 			            <td>
 			                <button type="button" class="delete btn btn-danger" data-toggle="modal" data-target="#myModal_1"  onclick="showInfo(<?php echo $index; ?>);"><i class="fa fa-trash-o"></i> Xóa
 			 		    </td>
 			        </tr>
 
-			        <?php  	
+			        <?php
 			        	$index++;
 			        	$quantity++;
 			         }}} ?>
@@ -201,7 +201,7 @@
 			<div class="panel panel-danger">
 	            <div class="panel-heading panel_style">
 				    <div class="row">
-				    	<h6 class="panel-title col-sm-9"><i class="fa fa-fw fa-file-text-o"></i> Tổng số sản phẩm quần áo: <?php echo $quantity;?></h6>
+				    	<h6 class="panel-title col-sm-9"><i class="fa fa-fw fa-file-text-o"></i> Tổng số sản phẩm<?= strtolower($row['group_name']) ?>: <?php echo $quantity;?></h6>
 				    	<div class="col-sm-3">
 			    			<input type="submit" class="btn btn-md btn-success btn-block" data-toggle="modal" data-target="#myModal_2" value="Thêm mới một sản phẩm">
 						</div>
@@ -238,7 +238,7 @@
 	                </div>
 	            </div>
 		    <?php } else {?>
-		    	<p>Bạn không có quyền quản trị viên. Click <a href="../Demo.tpl.php" ?>vào đây</a> để trở lại trang chủ.</p>	
+		    	<p>Bạn không có quyền quản trị viên. Click <a href="../Demo.tpl.php" ?>vào đây</a> để trở lại trang chủ.</p>
 		    <?php } ?>
 		    </div>
 		</div>
@@ -314,7 +314,7 @@
 	                   ID Sản phẩm <input type="text" name="id_kh" id="id_kh" class="form_style form-control input-md" placeholder="ID sản phẩm" readonly="readonly">
 					</div>
 					<div class="form-group">
-	                   Loại sản phẩm 
+	                   Loại sản phẩm
 	                   <select name="loaiSP" id="loaiSP" class="form_style form-control">
 	                   		<option value="quanAo">Quần Áo</option>
 	                   		<option value="giayDep">Giày Dép</option>

@@ -1,5 +1,7 @@
 <?php
   session_start();
+  if (!isset($_SESSION['giohang'])) $_SESSION['giohang'] = array();
+  if (!isset($_SESSION['sl'])) $_SESSION['sl'] = 0;
   if ($_GET['action'] == 'add') {
     if (isset($_GET['value'])) {
       $value = $_GET['value'];
@@ -19,12 +21,13 @@
     $result = mysql_query($sql);
     if ($result) {
       $row = mysql_fetch_array($result);
-      echo $row['name'];
+      echo $row['name'].":".$_SESSION['sl'];
     }
     require '../../config/closeConnectDb.php';
   } else {
     unset($_SESSION['giohang'][$_GET['id']]);
     $_SESSION['sl']--;
+    echo $_SESSION['sl'];
   }
   // print_r($_SESSION['giohang']);
 ?>

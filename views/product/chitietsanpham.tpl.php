@@ -44,6 +44,9 @@
                 <label><?= $row_loaisp['group_name'] ?></label>
               </div>
               <div>
+                <span><?= $row['info'] ?></span>
+              </div>
+              <div>
                 <label class="list-unstyled glyphicon glyphicon-ok"> Đổi hàng trong vòng hai ngày kể từ ngày mua</label>
                 <br>
                 <label class="list-unstyled glyphicon glyphicon-ok"> Tư vấn online 24/7</label>

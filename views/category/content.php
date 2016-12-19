@@ -1,15 +1,15 @@
 <?php
   if (isset($_GET['category'])) {
     $group_id = $_GET['category'];
-  } else {
-    $group_id = 1;
   }
 
   require 'config/connectdb.php';
-  $sql = "Select * from loaisanpham where group_id=$group_id";
-  $result = mysql_query($sql);
-  if ($result) {
-    $row = mysql_fetch_array($result);
+  if (isset($group_id)) {
+    $sql = "Select * from loaisanpham where group_id=$group_id";
+    $result = mysql_query($sql);
+    if ($result) {
+      $row = mysql_fetch_array($result);
+    }
   }
 
   if (isset($_GET['action']) && $_GET['action'] == 'addcart') {
@@ -48,7 +48,7 @@
   <br>
   <div class="container-fluid">
     <div class="well well-sm">
-      <strong><?= $row['group_name'] ?></strong>
+      <strong><?= isset($row) ? $row['group_name'] : 'Sản Phẩm' ?></strong>
       <div class="btn-group">
         <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span> List</a>
         <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span> Grid</a>

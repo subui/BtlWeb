@@ -1,7 +1,11 @@
 <div id="products" class="row list-group">
   <?php
     require 'config/connectdb.php';
-    $sql = "Select * from sanpham where group_id='$group_id'";
+    if (isset($group_id)) {
+      $sql = "Select * from sanpham where group_id='$group_id'";
+    } else {
+      $sql = "Select * from sanpham";
+    }
     $result = mysql_query($sql);
     if($result) {
       while($row = mysql_fetch_assoc($result)) {
@@ -37,12 +41,16 @@
         for (var i = 0; i < 10; i++) {
           strId += Math.floor(Math.random() * 10);
         }
-        $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="' + strId + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><a href="index.php?page=giohang" class="alert-link">Đã thêm <strong>' + msg + '</strong> vào giỏ hàng</a></div>');
+        var name = msg.split(":")[0];
+        $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="' + strId + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><a href="index.php?page=giohang" class="alert-link" style="font-weight: normal">Đã thêm <strong>' + name + '</strong> vào giỏ hàng</a></div>');
         window.setTimeout(function() {
           $("#" + strId).fadeTo(500, 0).slideUp(500, function(){
               $(this).remove();
           });
         }, 3000);
+
+        var quantity = msg.split(":")[1];
+        $("#sl").text("Giỏ hàng (" + quantity + ")");
       });
   });
 </script>

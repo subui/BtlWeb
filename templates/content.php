@@ -34,10 +34,11 @@
       while($row = mysql_fetch_assoc($result)){
         ?>
         <div class="col-sm-3">
-          <a href="index.php?page=chitiet&id=<?= $row['id_sp'] ?>">
-            <img src="libraries/img/<?php echo $row['img1']; ?>" class="img-responsive" style="width:100%" alt="Image">
+          <a href="index.php?page=chitiet&id=<?= $row['id_sp'] ?>" style="color: #000">
+            <img src="libraries/img/<?= $row['img1']; ?>" class="img-responsive" style="width:100%" alt="Image">
             <br>
             <h5 align="center"><?php echo $row['name']; ?></h5>
+            <h3 align="center"><strong><?= number_format($row['price']) ?>đ</strong></h3>
           </a>
         </div>
         <?php }

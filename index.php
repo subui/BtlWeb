@@ -49,9 +49,6 @@ session_start();
   .alert {
     margin-bottom: 10px !important;
   }
-  .alert-link {
-    font-weight: normal !important;
-  }
   input[type=number] {
     width: 60px;
   }

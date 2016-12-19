@@ -22,7 +22,7 @@
       <div class="col-sm-3 col-md-3">
         <form class="navbar-form" role="search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Tìm Kiếm" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : '' ?>">
+            <input type="text" class="form-control" placeholder="Tìm kiếm" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : '' ?>">
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
@@ -36,14 +36,14 @@
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quản trị viên<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="../admin/quanlysanpham.tpl.php">Quản lý Sản phẩm</a>
+              <li><a href="views/admin/quanlysanpham.tpl.php">Quản lý Sản phẩm</a>
               </li>
-              <li><a href="../admin/quanlykhachhang.tpl.php">Quản lý Khách hàng</a>
+              <li><a href="views/admin/quanlykhachhang.tpl.php">Quản lý Khách hàng</a>
               </li>
-              <li><a href="../admin/quanlyhoadon.tpl.php">Quản lý Hóa đơn</a>
+              <li><a href="views/admin/quanlyhoadon.tpl.php">Quản lý Hóa đơn</a>
               </li>
               <li class="divider"></li>
-              <li><a href="../../modules/logout.php">Đăng xuất</a>
+              <li><a href="modules/logout.php">Đăng xuất</a>
               </li>
             </ul>
 
@@ -56,16 +56,16 @@
                 <li><a href="../customer/donhang.tpl.php">Đơn hàng</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="../../modules/logout.php">Đăng xuất</a>
+                <li><a href="modules/logout.php">Đăng xuất</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="index.php?page=giohang">Giỏ hàng (<?= isset($_SESSION['sl']) ? $_SESSION['sl'] : 0 ?>)</a>
+              <a href="index.php?page=giohang" id="sl">Giỏ hàng (<?= isset($_SESSION['sl']) ? $_SESSION['sl'] : 0 ?>)</a>
 
               <?php } else { ?>
 
-                <a href="../../modules/login.php" class="dropdown-toggle"> Đăng nhập</a>
+                <a href="modules/login.php" class="dropdown-toggle"> Đăng nhập</a>
 
                 <?php } ?>
               </li>
