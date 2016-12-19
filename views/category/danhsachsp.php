@@ -33,9 +33,13 @@
     var id = parent.attr('id');
     $.ajax("views/category/cart.php?action=add&id=" + id)
       .done((msg) => {
-        $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="alert' + id + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Đã thêm ' + msg + ' vào giỏ hàng</div>');
+        var strId = "" + id;;
+        for (var i = 0; i < 10; i++) {
+          strId += Math.floor(Math.random() * 10);
+        }
+        $('.alert-giohang').append('<div class="alert alert-success alert-dismissible fade in" id="' + strId + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><a href="index.php?page=giohang" class="alert-link">Đã thêm <strong>' + msg + '</strong> vào giỏ hàng</a></div>');
         window.setTimeout(function() {
-          $("#alert" + id).fadeTo(500, 0).slideUp(500, function(){
+          $("#" + strId).fadeTo(500, 0).slideUp(500, function(){
               $(this).remove();
           });
         }, 3000);

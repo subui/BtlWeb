@@ -141,7 +141,7 @@
     $('#dongia').text(sum.toLocaleString() + "đ");
     $('#tongcong').text((sum + 30000).toLocaleString() + "đ");
 
-    $.ajax("cart.php?action=add&id=" + id + "&value=" + value)
+    $.ajax("views/category/cart.php?action=add&id=" + id + "&value=" + value)
       .error((msg) => console.log(msg));
   });
 
@@ -149,7 +149,7 @@
     var parent = $(this).parent().parent();
     var id = parent.attr('id');
 
-    $.ajax("cart.php?action=remove&id=" + id)
+    $.ajax("views/category/cart.php?action=remove&id=" + id)
       .done(() => {
         parent.remove();
         var sum = 0;
