@@ -52,13 +52,13 @@
                           <a class="thumbnail pull-left" href="#"> <img class="media-object" src="libraries/img/<?= $row['img1'] ?>" style="width: 72px; height: 72px;"> </a>
                           <div class="media-body">
                             <br>
-                            <h4 class="media-heading"><a href="index.php?page=chitiet&id=<?= $key ?>"><?= $row['name'] ?></a></h4>
+                            <h4 class="media-heading"><a href="/BtlWeb/index.php?page=chitiet&id=<?= $key ?>"><?= $row['name'] ?></a></h4>
                             <span></span><span class="text-success"><strong></strong></span>
                           </div>
                         </div>
                       </td>
                       <td class="col-sx-3" style="text-align: center">
-                        <input type="number" class="form-control" value="<?= $value ?>">
+                        <input type="number" class="form-control" style="padding: 0 0 !important;" value="<?= $value ?>" id="slgiohang">
                       </td>
                       <td class="col-sx-1 text-center"><strong class="price" value="<?= $row['price'] ?>"><?= number_format($row['price']) ?></strong></td>
                       <td class="col-sx-2 text-center"><strong class="sum" value="<?= $value * $row['price'] ?>"><?= number_format($value * $row['price']) ?></strong></td>
@@ -135,6 +135,10 @@ $('input').on('input', function() {
   var parent = $(this).parent().parent();
   var id = parent.attr('id');
   var value = $(this).val();
+  if (value == 0) {
+    $(this).val(1);
+    return;
+  }
   var price = parent.find('.price').attr('value');
   parent.find('.sum').attr('value', value * price);
   parent.find('.sum').text((value * price).toLocaleString());
@@ -145,8 +149,7 @@ $('input').on('input', function() {
   $('#dongia').text(sum.toLocaleString() + "đ");
   $('#tongcong').text((sum + 30000).toLocaleString() + "đ");
 
-  $.ajax("views/category/cart.php?action=add&id=" + id + "&value=" + value)
-  .error((msg) => console.log(msg));
+  $.ajax("views/category/cart.php?action=add&id=" + id + "&value=" + value);
 });
 
 $('.trash').on('click', function() {
@@ -170,7 +173,6 @@ $('.trash').on('click', function() {
     }
 
     $('#sl').text("Giỏ hàng (" + msg + ")");
-  })
-  .error((msg) => console.log(msg));
+  });
 });
 </script>

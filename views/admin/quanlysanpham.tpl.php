@@ -9,12 +9,9 @@
 		<title>Quản lý khách hàng: Admin</title>
 		<link rel="stylesheet" type="text/css" href="../../style/login_form.css">
 		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-	    <script src="../../bootstrap/js/JQueryLib.js"></script>
+	    <script src="../../bootstrap/js/jquery.min.js"></script>
 	    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="../../style/login.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <style type="text/css">
 	    	.custab{
 			    border: 1px solid #ccc;
@@ -67,71 +64,7 @@
 	</head>
 	<body>
 		<!-- Navigation -->
-	    <nav class="navbar navbar-inverse navbar-fixed-top">
-	        <div class="container-fluid">
-	            <div class="collapse navbar-collapse js-navbar-collapse">
-	                <ul class="nav navbar-nav navbar-left">
-	                    <a class="navbar-brand" href="../front/trangchu.tpl.php">
-	                        <img height="20" width="20" src="logo.png" class="img-responsive pull-left" alt="Responsive image"> PartTime</a>
-	                    <li class="dropdown mega-dropdown">
-	                        <a href="quần áo.html" class="dropdown-toggle" data-toggle="dropdown">Quần áo</a>
-	                    </li>
-	                    <li class="dropdown mega-dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giày</a>
-
-	                    </li>
-	                    <li><a href="#">Phụ kiện</a>
-	                    </li>
-	                    <li><a href="#">Giới thiệu</a>
-	                    </li>
-	                    <li><a href="#">Liên hệ</a>
-	                    </li>
-	                </ul>
-	                <ul class="nav navbar-nav navbar-right">
-	                   <li class="dropdown">
-	                        <?php if(isset($_SESSION["admin"])) { ?>
-	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quản trị viên<span class="caret"></span></a>
-	                            <ul class="dropdown-menu" role="menu">
-	                                <li><a href="quanlysanpham.tpl.php">Quản lý Sản phẩm</a>
-	                                </li>
-	                                <li><a href="quanlykhachhang.tpl.php">Quản lý Khách hàng</a>
-	                                </li>
-	                                <li><a href="quanlyhoadon.tpl.php">Quản lý Hóa đơn</a>
-	                                </li>
-	                                <li class="divider"></li>
-	                                <li><a href="../../modules/logout.php">Đăng xuất</a>
-	                                </li>
-	                             </ul>
-
-	                        <?php }else if (isset($_SESSION["customer"])) { ?>
-
-	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION["customer"]; ?><span class="caret"></span></a>
-	                            <ul class="dropdown-menu" role="menu">
-	                                <li><a href="#">Thông tin cá nhân</a>
-	                                </li>
-	                                <li><a href="#">Đơn hàng</a>
-	                                </li>
-	                                <li class="divider"></li>
-	                                <li><a href="../../modules/logout.php">Đăng xuất</a>
-	                                </li>
-	                             </ul>
-	                            <li><a href="#">Giỏ hàng (0)</a>
-
-	                         <?php } else { ?>
-
-	                            <a href="../modules/login.php" class="dropdown-toggle"> Đăng nhập<span class="caret"></span></a>
-	                            <ul class="dropdown-menu">
-	                                <li><a href="../../modules/signup.php">Đăng Ký</a>
-	                                </li>
-	                            </ul>
-	                         <?php } ?>
-	                    </li>
-	                </ul>
-	            </div>
-	            <!-- /.nav-collapse -->
-	        </div>
-	        <!-- /.container-fluid -->
-	    </nav>
+	    <?php include 'nav.php'; ?>
 
 	    <?php
 	    	$index = 0;
@@ -262,7 +195,7 @@
 						<div class="col-xs-6 col-sm-6 col-sm-6">
 	                        <input type="submit" class="btn btn-md btn-success btn-block" value="Xóa">
 						</div><div class="col-xs-6 col-sm-6 col-sm-6">
-	                        <input type="submit" class="btn btn-md btn-success btn-block" value="Hủy bỏ">
+	                        <button class="btn btn-md btn-success btn-block" id='huy'>Hủy bỏ</button>
 						</div>
 					</div>
 				</fieldset><br>
@@ -345,7 +278,9 @@
 				</fieldset><br>
 			</form>
 		</div>
-
+<script>
+	$("#huy").on('click', () => $('#myModal_1').remove());
+</script>
 	</body>
 </html>
 <?php ob_flush(); ?>

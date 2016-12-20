@@ -29,6 +29,7 @@
 					while($row = mysql_fetch_assoc($result)){
 						if( (strcmp($username,$row['username'])==0) && (strcmp($password,$row['password'])==0) ){
 							$_SESSION["customer"] = $row['tenKH'];
+							$_SESSION['id_kh'] = $row['id_kh'];
 							$flag = 1;
 							break;
 						}

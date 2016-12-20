@@ -38,7 +38,7 @@
             <div class=" col-md-6">
               <h3 class="product-title"><a href="#"><?= $row['name'] ?></a></h3>
               <div>
-                <label>Còn hàng</label>
+                <label><?= $row['status'] > 0 ? 'Còn hàng' : 'Hết hàng' ?></label>
               </div>
               <div>
                 <label><?= $row_loaisp['group_name'] ?></label>
@@ -55,32 +55,25 @@
                 <br>
               </div>
               <br>
-              <div class="row">
-                <div class="col-sm-4">
-                  <label for="Số lượng">Số lượng</label>
+              <?php if ($row['status'] > 0) {
+                ?>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label for="Số lượng">Số lượng</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="number" id="soluong">
+                  </div>
                 </div>
-                <div class="col-md-9">
-                  <input type="number" class="col-md-3" id="Số lượng">
-                </div>
-              </div>
-              <br>
-              <h2 class="price"><span><?= number_format($row['price']) ?>đ</span></h2>
+                <br>
+                <h2 class="price"><span><?= number_format($row['price']) ?>đ</span></h2>
 
-              <h5 class="sizes">sizes:
-                <span class="size" data-toggle="tooltip" title="small">s</span>
-                <span class="size" data-toggle="tooltip" title="medium">m</span>
-                <span class="size" data-toggle="tooltip" title="large">l</span>
-                <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-              </h5>
-              <h5 class="colors">colors:
-                <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-                <span class="color green"></span>
-                <span class="color blue"></span>
-              </h5>
-              <div class="action">
-                <button class="btn btn-success btn-giohang" id="<?= $_GET['id'] ?>">Thêm vào giỏ</button>
-                <button class="like btn btn-success" type="button"><span class="glyphicon glyphicon-heart"></span></button>
-              </div>
+                <div class="action">
+                  <button class="btn btn-success btn-giohang" id="<?= $_GET['id'] ?>">Thêm vào giỏ</button>
+                  <button class="like btn btn-success" type="button"><span class="glyphicon glyphicon-heart"></span></button>
+                </div>
+                <?php
+              } ?>
             </div>
           </div>
         </div>
@@ -104,5 +97,15 @@ $('.btn-giohang').on('click', function() {
         });
       }, 3000);
     });
+});
+
+$('#soluong').on('input', () => {
+  let sl = $('#soluong').val();
+  if (sl > <?= $row['status'] ?>) {
+    $('#soluong').val(<?= $row['status'] ?>);
+  }
+  if (sl < 0) {
+    $('#soluong').val(0);
+  }
 });
 </script>

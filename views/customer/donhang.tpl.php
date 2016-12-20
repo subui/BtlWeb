@@ -1,14 +1,23 @@
+<?php
+    ob_start();
+    session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Hóa Đơn Thanh Toán</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <script src="../../bootstrap/js/jquery.min.js"></script>
   <script src="../../bootstrap/js/bootstrap.min.js"></script>
   <style type="text/css">
-  body{margin:40px;}
+  body{
+    margin:40px;
+    background: #3c3d41!important;
+  }
   .btn-circle {
     width: 30px;
     height: 30px;
@@ -36,9 +45,6 @@
 
   <div id="login-overlay" class="modal-lg modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="myModalLabel" align="center">PART TIME</h3>
-      </div>
       <div class="modal-body">
         <div class='container-fluid'>
           <div class='row' style='padding-top:25px; padding-bottom:25px;'>
@@ -49,10 +55,10 @@
                     Thông tin đơn hàng của bạn
                   </h2>
                   <hr/>
-                  <a href="#" class="btn btn-info" style="width: 100%;">Thêm sản phẩm vào giỏ hàng</a>
+                  <a href="../../index.php?page=sp&category=1" class="btn btn-info" style="width: 100%;">Thêm sản phẩm vào giỏ hàng</a>
                   <hr/>
                   <div class="shopping_cart">
-                    <form class="form-horizontal" role="form" action="" method="post" id="payment-form">
+                    <form class="form-horizontal" role="form" action="donhang.tpl.php" method="post" id="payment-form">
                       <div class="panel-group active" id="accordion">
                         <div class="panel panel-default">
                           <div class="panel-heading">
@@ -68,134 +74,43 @@
                                 <div class="col-md-9">
                                   <table class="table table-striped">
                                     <tr>
-                                      <td colspan="2">
-                                        <a class="btn btn-warning btn-sm pull-right" href="http://www.startajobboard.com/" title="Remove Item">X</a>
-                                        <b>Sửa</b>
-                                      </td>
+              <?php
+                  require '../../config/connectdb.php';
+                  $sum = 0;
+                  if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                      foreach ($_SESSION['giohang'] as $key => $value) {
+                        $sql = "select * from sanpham where id_sp = '$key'";
+                        $result = mysql_query($sql);
+                        while ($row = mysql_fetch_array($result)){
+                        $sum += $value * $row['price'];
+
+              ?>
                                     </tr>
                                     <tr>
                                       <td>
                                         <ul>
-                                          <li>Quần bò</li>
-                                          <li>Áo khoác</li>
-                                          <li>Giày</li>
+                                          <li><?php echo $row['name']; ?></li>
                                         </ul>
                                       </td>
                                       <td>
-                                        <b>1.200.000đ</b>
+                                        <b><?php echo number_format($value * $row['price']); ?></b>
                                       </td>
                                     </tr>
+                          <?php
+                               }
+                             }
+                           }
+                          ?>
                                   </table>
                                 </div>
                                 <div class="col-md-3">
                                   <div style="text-align: center;">
                                     <h3>Tổng hóa đơn</h3>
-                                    <h3><span style="color:green;">1.200.000đ</span></h3>
+                                    <h3><span style="color:green;"><?= number_format($sum + 30000); ?></span></h3>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel">
-                        <div class="panel-heading active">
-                          <h4 class="panel-title">
-                            <div style="text-align: center;"><a data-toggle="collapse"
-                              data-parent="#accordion"
-                              href="#collapseThree"
-                              class=" btn   btn-success" id="payInfo"
-                              style="width:100%;display: none;" onclick="$(this).fadeOut();
-                              document.getElementById('collapseThree').scrollIntoView()">Enter Payment Information »</a>
-                            </div>
-                          </h4>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                              <b>Thông tin thanh toán</b>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <span class='payment-errors'></span>
-                            <fieldset>
-                              <legend>Bạn muốn thanh toán bằng cách nào trong ngày hôm nay?</legend>
-                              <div class="form-group">
-                                <label class="col-sm-3 control-label" for="card-holder-name">Tên chủ tài khoản</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" stripe-data="name" id="name-on-card" placeholder="Card Holder's Name">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-sm-3 control-label" for="card-number">Số tài khoản </label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" stripe-data="number"
-                                  id="card-number" placeholder="Debit/Credit Card Number">
-                                  <br/>
-                                  <div>
-                                    <img class="pull-right" src="https://s3.amazonaws.com/hiresnetwork/imgs/cc.png" style="max-width: 250px; padding-bottom: 20px;">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-sm-3 control-label" for="expiry-month">Ngày làm thẻ</label>
-                                  <div class="col-sm-9">
-                                    <div class="row">
-                                      <div class="col-xs-3">
-                                        <select class="form-control col-sm-2" data-stripe="exp-month" id="card-exp-month" style="margin-left:5px;">
-                                          <option>Month</option>
-                                          <option value="01">Jan (01)</option>
-                                          <option value="02">Feb (02)</option>
-                                          <option value="03">Mar (03)</option>
-                                          <option value="04">Apr (04)</option>
-                                          <option value="05">May (05)</option>
-                                          <option value="06">June (06)</option>
-                                          <option value="07">July (07)</option>
-                                          <option value="08">Aug (08)</option>
-                                          <option value="09">Sep (09)</option>
-                                          <option value="10">Oct (10)</option>
-                                          <option value="11">Nov (11)</option>
-                                          <option value="12">Dec (12)</option>
-                                        </select>
-                                      </div>
-                                      <div class="col-xs-3">
-                                        <select class="form-control" data-stripe="exp-year" id="card-exp-year">
-                                          <option value="2016">2016</option>
-                                          <option value="2017">2017</option>
-                                          <option value="2018">2018</option>
-                                          <option value="2019">2019</option>
-                                          <option value="2020">2020</option>
-                                          <option value="2021">2021</option>
-                                          <option value="2022">2022</option>
-                                          <option value="2023">2023</option>
-                                          <option value="2024">2024</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-sm-3 control-label" for="cvv">Card CVC</label>
-                                  <div class="col-sm-3">
-                                    <input type="text" class="form-control" stripe-data="cvc" id="card-cvc" placeholder="Security Code">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="col-sm-offset-3 col-sm-9">
-                                  </div>
-                                </div>
-                              </div>
-                            </fieldset>
-                            <button type="submit" class="btn btn-success btn-lg" style="width:100%;">Pay Now</button>
-                            <br/>
-                            <div style="text-align: left;"><br/>
-                              By submiting this order you are agreeing to our
-                              <a href="/legal/billing/">universal billing agreement</a>,
-                              and <a href="/legal/terms/">terms of service</a>.
-                              If you have any questions about our products or services please contact us before placing this order.
+                              <input class="btn btn-success" type="submit" value="Thanh toán" name="submit">
                             </div>
                           </div>
                         </div>
@@ -211,3 +126,53 @@
     </div>
   </body>
   </html>
+  <?php
+        if (isset($_POST['submit'])) {
+          require '../../config/connectdb.php';
+          $idSp = ""; $priceSp = ""; $soLuong = ""; $number = 0;
+          foreach ($_SESSION['giohang'] as $key => $value) {
+            $idSp .= $key.",";
+            $soLuong .= $value.",";
+            $sum = 0;
+            $sql = "select * from sanpham where id_sp = '$key'";
+            $result = mysql_query($sql);
+            while ($row = mysql_fetch_array($result)){
+              $priceSp .= $row['price'].",";
+              $sum += $value * $row['price'];
+            }
+          }
+          $sql = "INSERT INTO donhang(id_kh,id_sp,soluong,price,thanhtien) VALUES ('".$_SESSION["id_kh"]."','".$idSp."','".$soLuong."','".$priceSp."','".$sum."')";
+          $result = mysql_query($sql);
+          if (!$result) {
+            echo "<script>alert('Giao dịch không thành công')</script>";
+            return;
+          }
+
+          $sql = "select number_hd from khachhang where id_kh = '".$_SESSION['id_kh']."'";
+          $result = mysql_query($sql);
+          $row = mysql_fetch_assoc($result);
+          $number += $row['number_hd'] +1;
+
+          $sql = "update khachhang set number_hd='".$number."' where id_kh='".$_SESSION['id_kh']."'";
+          $result = mysql_query($sql);
+
+          if($result){
+            foreach ($_SESSION['giohang'] as $key => $value) {
+              $sql = "select * from sanpham where id_sp = '$key'";
+              $result = mysql_query($sql);
+              $row = mysql_fetch_array($result);
+              $sl_goc = $row['status'];
+              $sl_conlai = $sl_goc - $value;
+              $sql = "update sanpham set status = ".$sl_conlai." where id_sp = '".$key."'";
+              $result = mysql_query($sql);
+            }
+            echo "<script>alert('Giao dịch thành công')</script>";
+            unset($_SESSION['giohang']);
+            unset($_SESSION['sl']);
+          } else {
+            echo "<script>alert('Không thành công')</script>";
+          }
+
+          require '../../config/closeConnectDb.php';
+        }
+  ?>

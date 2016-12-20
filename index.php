@@ -23,6 +23,9 @@ session_start();
 
   <?php } ?>
 
+  <link rel="stylesheet" href="chat/chat.css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="chat/chat.js"></script>
+
   <style type="text/css">
   .img-size{
     max-width: 400px;
@@ -51,6 +54,12 @@ session_start();
   }
   input[type=number] {
     width: 60px;
+  }
+  .chat_window {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    z-index: 9999;
   }
   </style>
 </head>
@@ -108,6 +117,7 @@ session_start();
     </section>
 
   </div>
+  <?php include 'chat/chat.html'; ?>
 </body>
 
 </html>

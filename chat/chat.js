@@ -46,7 +46,7 @@
                 return sendMessage(getMessageText());
             }
         });
-        sendMessage('Hello Philip! :)');
+        sendMessage('Bạn có cần ? :)');
         setTimeout(function () {
             return sendMessage('Hi Sandy! How are you?');
         }, 1000);
