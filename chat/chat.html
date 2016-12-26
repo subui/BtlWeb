@@ -33,7 +33,7 @@
   //   $.ajax("action.php?text=" + text)
   //     .done((msg) => $("#chat").html(msg));
   // });
-  //
+
   // $(document).ready((e) => {
   //   $.ajaxSetup({cache: false});
   //   setInterval(() => $("#chat").load("load.php"), 10);
@@ -42,7 +42,7 @@
   $('.closec').on('click', () => $('.chat_window').css({
     "transform": "translateY(500px)",
     "transition": "transform 500ms"
-  }));
+  }).on('transitionend', () => $('.chat_window').remove()));
 
   $('.minimize').on('click', () => $('.chat_window').css({
     "transform": "translateY(365px)",
